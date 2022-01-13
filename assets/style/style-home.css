@@ -36,16 +36,27 @@ h6 {
 
 body {
   background-color: rgba(240, 244, 248, 1);
-  word-wrap: break-word;
-  overflow-wrap: break-word;
+  /* word-wrap: break-word;
+  overflow-wrap: break-word; */
 }
 
 .header {
+  position: fixed;
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
   align-items: center;
+  width: 100%;
   height: 88px;
-  padding: 1em;
+  z-index: 100;
+  background-color: #fff;
+}
+.header .header-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 64px;
 }
 .header .logo a {
   display: flex;
@@ -57,21 +68,55 @@ body {
 .header .menu {
   display: flex;
 }
+
+#nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
 .header #nav .menu {
-  gap: 0.8em;
+  gap: 0.9em;
   font-size: 1em;
 }
 .header #nav .menu a {
   color: #202020;
   display: block;
-  padding: .5em;
+  padding: 0.5em;
+}
+.header #nav .menu a:hover {
+  color: #fe3e6d;
 }
 
-.header .btn-mobile{
+.header .btn-login {
+  display: flex;
+  flex-flow: row wrap;
+  width: fit-content;
+}
+.header .btn-login ul {
+  display: flex;
+  align-items: center;
+  gap: 1.2em;
+}
+
+.header .btn-login a {
+  color: #202020;
+}
+
+.header .btn-login ul li span {
+  height: 48px;
+  padding: 12px 32px;
+}
+
+.header #btn-mobile {
   display: none;
 }
-@media(max-width: 800px){
-  .header .menu {
+
+@media (max-width: 1130px) {
+  .header #btn-mobile {
+    display: block;
+  }
+  #nav .menu {
     display: block;
     position: absolute;
     width: 100%;
@@ -80,25 +125,25 @@ body {
     height: 0;
     background-color: #fdfdfd;
     z-index: 1000;
-    transition: .5s all;
+    transition: 0.5s all;
     visibility: hidden;
     overflow-y: auto;
   }
-  #nav.active .menu{
+  #nav.active .menu {
     height: calc(100vh - 88px);
     visibility: visible;
   }
   #nav .menu a {
     padding: 1rem 0;
     margin: 0 1rem;
-    border-bottom: 1px solid rgba(0,0,0, .05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
   }
   #nav .menu a:hover {
-    color: #FE3E6D;
+    color: #fe3e6d;
   }
   #btn-mobile {
     display: flex;
-    padding: .5em 1em;
+    padding: 0.5em 1em;
     font-size: 1em;
     cursor: pointer;
     background: none;
@@ -107,11 +152,12 @@ body {
   #hamburger {
     width: 20px;
     border-top: 2px solid;
-    gap: .5em;
+    gap: 0.5em;
     display: block;
   }
-  #hamburger::after, #hamburger::before  {
-    content: '';
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
     display: block;
     width: 20px;
     height: 2px;
@@ -120,13 +166,13 @@ body {
     transition: 0.3s;
     position: relative;
   }
-  #nav.active #hamburger{
+  #nav.active #hamburger {
     border-top-color: transparent;
   }
-  #nav.active #hamburger::before{
+  #nav.active #hamburger::before {
     transform: rotate(135deg);
   }
-  #nav.active #hamburger::after{
+  #nav.active #hamburger::after {
     transform: rotate(-135deg);
     top: -7px;
     position: relative;
@@ -255,6 +301,7 @@ body {
 .hero .img-hero img {
   width: 700px;
 }
+
 
 /*===== info action =====*/
 
@@ -492,4 +539,139 @@ footer .btn-app a img {
 }
 .mr-64 {
   margin-right: 64px;
+}
+
+/*===== media query =====*/
+@media (max-width: 700px) {
+  .header .btn-login {
+    display: none;
+  }
+
+  .hero .hero-content {
+    justify-content: center;
+    margin-top: 5%;
+    padding: 10px;
+  }
+  .hero .hero-content .action-register {
+    margin: 15px 0;
+    flex-flow: column nowrap;
+    align-content: center;
+  }
+  .hero .hero-content .action-register h1 {
+    font-size: 3em;
+    line-height: 1.2em;
+    text-align: center;
+  }
+  .hero .hero-content .action-register span {
+    max-width: 100%;
+  }
+  .hero .hero-content .img-hero img {
+    width: 80%;
+  }
+
+  .info-action {
+    padding: 10px;
+    height: max-content !important;
+    margin: 50px 0;
+  }
+  .info-action .text-info {
+    display: flex;
+    flex-flow: column nowrap;
+  }
+
+  .info-action .text-info .action-description {
+    margin: 15px 0;
+    width: auto;
+    line-height: 1.1em;
+    text-align: center;
+  }
+  .info-action .text-info .action-description h2{
+    font-size: 1.5em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+  }
+  .info-action .text-info .action-description p {
+    font-size: 1.1em;
+  }
+  .info-action .text-info .logo-medio-cora {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .info-action .text-info .logo-medio-cora img {
+    width: 20%;
+    max-width: 80px;
+  }
+
+  .question-cora {
+    padding: 10px;
+    height: 300px !important;
+  }
+  .question-cora .question-content {
+    display: flex;
+    flex-flow: column nowrap;
+    margin: 0 !important;
+    align-items: center;
+  }
+  .question-cora .question-content h2 {
+    margin: 0;
+    font-size: 2em;
+  }
+
+  .products-cora {
+    padding: 10px;
+  }
+  .products-cora .products-content {
+    margin: 0 !important;
+    display: flex;
+    flex-flow: column nowrap;
+  }
+  .products-cora .products-description {
+    margin: 20px 0!important;
+  }
+  .products-cora .products-description div {
+    margin: 0;
+    width: 100% !important;
+    text-align: center;
+  }
+  .products-cora .products-description div h2 {
+    margin: 0;
+    width: 100%;
+    font-size: 1.8em !important;
+    line-height: 1.3em !important;
+  }
+  .products-cora .products-description div p{
+    font-size: 1em !important;
+    line-height: 1.5em !important;
+  }
+  .products-cora .products-content .products-description img {
+    display: none;
+  }
+  .products-cora .products-content .products-description .mb-img {
+    margin-top: 15px;
+    background-image: url(/assets/img/product-cora-3.svg);
+    background-position: center top;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 200px;
+  }
+
+
+  .footer-content .footer-links {
+    justify-content: center !important;
+  }
+  .footer-content .footer-links div{
+    margin: 0 !important;
+    align-items: center;
+    margin-bottom: 25px !important;
+  }
+
+  .footer-copy{
+    text-align: center;
+    padding: 10px;
+  }
+  .footer-copy .footer-midias{
+    margin-top: 10px;
+  }
 }
