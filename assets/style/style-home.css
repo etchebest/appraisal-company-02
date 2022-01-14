@@ -112,145 +112,6 @@ body {
   display: none;
 }
 
-@media (max-width: 1130px) {
-  .header #btn-mobile {
-    display: block;
-  }
-  #nav .menu {
-    display: block;
-    position: absolute;
-    width: 100%;
-    top: 88px;
-    right: 0;
-    height: 0;
-    background-color: #fdfdfd;
-    z-index: 1000;
-    transition: 0.5s all;
-    visibility: hidden;
-    overflow-y: auto;
-  }
-  #nav.active .menu {
-    height: calc(100vh - 88px);
-    visibility: visible;
-  }
-  #nav .menu a {
-    padding: 1rem 0;
-    margin: 0 1rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  }
-  #nav .menu a:hover {
-    color: #fe3e6d;
-  }
-  #btn-mobile {
-    display: flex;
-    padding: 0.5em 1em;
-    font-size: 1em;
-    cursor: pointer;
-    background: none;
-    border: none;
-  }
-  #hamburger {
-    width: 20px;
-    border-top: 2px solid;
-    gap: 0.5em;
-    display: block;
-  }
-  #hamburger::after,
-  #hamburger::before {
-    content: "";
-    display: block;
-    width: 20px;
-    height: 2px;
-    background: currentColor;
-    margin-top: 5px;
-    transition: 0.3s;
-    position: relative;
-  }
-  #nav.active #hamburger {
-    border-top-color: transparent;
-  }
-  #nav.active #hamburger::before {
-    transform: rotate(135deg);
-  }
-  #nav.active #hamburger::after {
-    transform: rotate(-135deg);
-    top: -7px;
-    position: relative;
-  }
-}
-
-/*== header =====*/
-/* header {
-  position: fixed;
-  overflow: hidden;
-  width: 100%;
-  height: 88px;
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  background-color: #fff;
-}
-.header-content {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 64px;
-}
-.header-content .topo-col-1,
-.topo-col-2 {
-  display: flex;
-  flex-flow: row wrap;
-}
-.header-content .topo-col-1 .logo {
-  width: 110px;
-}
-.header-content .topo-col-1 .logo a {
-  display: flex;
-}
-
-.header-content .topo-col-1 ul,
-.topo-col-2 ul {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-between;
-  margin: 0;
-  padding: 0;
-  align-content: center;
-}
-
-.header-content .topo-col-1 .nav-topo {
-  display: flex;
-}
-
-.header-content .topo-col-1 .nav-topo ul li,
-.topo-col-2 ul li {
-  list-style: none;
-  margin: 0 15px;
-  display: flex;
-  align-items: center;
-}
-.header-content .topo-col-1 ul li a,
-.topo-col-2 ul li a {
-  cursor: pointer;
-  text-decoration: none;
-  font-size: 1em;
-  color: #202020;
-  margin: 0;
-  padding: 0;
-}
-.header-content .topo-col-1 ul li a:hover,
-.topo-col-2 ul li a:hover {
-  color: rgb(254, 62, 109);
-  transition: 0.3s all;
-}
-.header-content .topo-col-2 ul li span {
-  height: 48px;
-  padding: 12px 32px;
-} */
-
 /*====== hero ======*/
 .hero {
   padding-top: 88px;
@@ -265,7 +126,7 @@ body {
   max-width: 1440px;
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-content: center;
   min-height: 687px;
@@ -275,7 +136,9 @@ body {
   display: flex;
   flex-flow: column nowrap;
   max-width: 432px;
+  min-width: 300px;
   margin-left: 170px;
+  justify-content: center;
 }
 .hero .action-register h1 {
   font-size: 4.5em;
@@ -293,15 +156,17 @@ body {
 }
 
 .hero .img-hero {
+  min-width: 400px;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .hero .img-hero img {
-  width: 700px;
+  max-width: 637px;
+  position: relative;
+  max-height: 520px;
+  width: 100%;
 }
-
 
 /*===== info action =====*/
 
@@ -542,6 +407,74 @@ footer .btn-app a img {
 }
 
 /*===== media query =====*/
+
+@media (max-width: 1130px) {
+  .header #btn-mobile {
+    display: block;
+  }
+  #nav .menu {
+    display: block;
+    position: absolute;
+    width: 100%;
+    top: 88px;
+    right: 0;
+    height: 0;
+    background-color: #fdfdfd;
+    z-index: 1000;
+    transition: 0.5s all;
+    visibility: hidden;
+    overflow-y: auto;
+  }
+  #nav.active .menu {
+    height: calc(100vh - 88px);
+    visibility: visible;
+  }
+  #nav .menu a {
+    padding: 1rem 0;
+    margin: 0 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  }
+  #nav .menu a:hover {
+    color: #fe3e6d;
+  }
+  #btn-mobile {
+    display: flex;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+    background: none;
+    border: none;
+  }
+  #hamburger {
+    width: 20px;
+    border-top: 2px solid;
+    gap: 0.5em;
+    display: block;
+  }
+  #hamburger::after,
+  #hamburger::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    margin-top: 5px;
+    transition: 0.3s;
+    position: relative;
+  }
+  #nav.active #hamburger {
+    border-top-color: transparent;
+  }
+  #nav.active #hamburger::before {
+    transform: rotate(135deg);
+  }
+  #nav.active #hamburger::after {
+    transform: rotate(-135deg);
+    top: -7px;
+    position: relative;
+  }
+}
+
 @media (max-width: 700px) {
   .header .btn-login {
     display: none;
@@ -585,7 +518,7 @@ footer .btn-app a img {
     line-height: 1.1em;
     text-align: center;
   }
-  .info-action .text-info .action-description h2{
+  .info-action .text-info .action-description h2 {
     font-size: 1.5em;
     line-height: 1.3em;
     margin-bottom: 10px;
@@ -627,7 +560,7 @@ footer .btn-app a img {
     flex-flow: column nowrap;
   }
   .products-cora .products-description {
-    margin: 20px 0!important;
+    margin: 20px 0 !important;
   }
   .products-cora .products-description div {
     margin: 0;
@@ -640,7 +573,7 @@ footer .btn-app a img {
     font-size: 1.8em !important;
     line-height: 1.3em !important;
   }
-  .products-cora .products-description div p{
+  .products-cora .products-description div p {
     font-size: 1em !important;
     line-height: 1.5em !important;
   }
@@ -657,21 +590,20 @@ footer .btn-app a img {
     height: 200px;
   }
 
-
   .footer-content .footer-links {
     justify-content: center !important;
   }
-  .footer-content .footer-links div{
+  .footer-content .footer-links div {
     margin: 0 !important;
     align-items: center;
     margin-bottom: 25px !important;
   }
 
-  .footer-copy{
+  .footer-copy {
     text-align: center;
     padding: 10px;
   }
-  .footer-copy .footer-midias{
+  .footer-copy .footer-midias {
     margin-top: 10px;
   }
 }
