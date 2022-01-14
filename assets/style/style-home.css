@@ -1,5 +1,3 @@
-/* @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap"); */
-
 @font-face {
   font-family: "Nunito";
   src: url("/assets/fonts/Nunito-VariableFont_wght.ttf") format("truetype"),
@@ -36,8 +34,6 @@ h6 {
 
 body {
   background-color: rgba(240, 244, 248, 1);
-  /* word-wrap: break-word;
-  overflow-wrap: break-word; */
 }
 
 .header {
@@ -58,12 +54,16 @@ body {
   max-width: 1440px;
   margin: 0 64px;
 }
-.header .logo a {
+.header .header-container .header-links {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+.header .header-links .logo a {
   display: flex;
 }
-.header .logo img {
+.header .header-links .logo img {
   width: 110px;
-  margin-right: 15px;
 }
 .header .menu {
   display: flex;
@@ -114,7 +114,6 @@ body {
 
 /*====== hero ======*/
 .hero {
-  padding-top: 88px;
   display: flex;
   flex-flow: column wrap;
   justify-content: center;
@@ -123,6 +122,7 @@ body {
 }
 
 .hero .hero-content {
+  margin-top: 50px;
   max-width: 1440px;
   width: 100%;
   display: flex;
@@ -159,12 +159,14 @@ body {
   min-width: 400px;
   display: flex;
   align-items: center;
+  justify-items: flex-start;
+  margin-right: 64px;
 }
 
 .hero .img-hero img {
   max-width: 637px;
-  position: relative;
   max-height: 520px;
+  position: relative;
   width: 100%;
 }
 
@@ -183,7 +185,7 @@ body {
   max-width: 1440px;
   width: 100%;
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
 }
 
@@ -209,6 +211,15 @@ body {
 .text-info .logo-medio-cora {
   margin-right: 174px;
   display: flex;
+  min-width: 50px;
+  align-items: center;
+}
+.text-info .logo-medio-cora img {
+  position: relative;
+  width: 100%;
+  max-width: 165px;
+  max-height: 166px;
+  min-width: 150px;
 }
 
 /*===== Question Coras =====*/
@@ -228,6 +239,7 @@ body {
   max-width: 1440px;
   width: 100%;
   margin-left: 175px;
+  padding-top: 110px;
 }
 .question-cora h2 {
   font-size: 4.5em;
@@ -244,33 +256,40 @@ body {
 /*===== products cora =====*/
 .products-cora {
   display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  align-items: center;
   width: 100%;
+  justify-content: center;
 }
 .products-cora .products-content {
-  width: 1440px;
+  max-width: 1440px;
   display: flex;
   flex-flow: column nowrap;
   min-height: 671px;
   justify-content: center;
   margin: 56px 0;
+  width: 100%;
+  padding: 0 175px;
 }
 .products-cora .products-content .products-description {
   display: flex;
-  flex-flow: row wrap;
+  flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  margin: 112px 0;
+  margin: 80px 0;
 }
 .products-cora .products-content .products-description img {
-  width: 533px;
+  max-width: 533px;
+  max-height: 391px;
+  width: 100%;
+  position: relative;
 }
+
 .products-cora .products-content .products-description div {
   display: flex;
   flex-flow: column nowrap;
-  width: 532px;
+  max-width: 532px;
+  width: 100%;
+  min-width: 350px;
+  padding: 0 10px;
 }
 .products-cora .products-content .products-description div h2 {
   font-size: 2.5em;
@@ -298,7 +317,7 @@ footer {
 
 .footer-content {
   width: 100%;
-  padding: 10px;
+  padding: 10px 175px;
   max-width: 1440px;
   color: #fff;
   display: flex;
@@ -314,7 +333,7 @@ footer {
 .footer-content .footer-links div {
   display: flex;
   width: 100%;
-  margin: 10px 30px;
+  margin: 10px 5px;
   max-width: 260px;
   flex-flow: column nowrap;
   min-width: 180px;
@@ -382,6 +401,19 @@ footer .btn-app a img {
 
 /*=== configuracao itens gerais ===*/
 
+#to-top{
+  background-color:rgba(243, 55, 102, 0.5);
+  color: #fff;
+  padding:3px 5px;
+  border-radius: 8px;
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  box-shadow: 3px 3px 10px #3335;
+  z-index: 200;
+  cursor: pointer;
+}
+
 .btn-rosa {
   background-color: rgb(254, 81, 123);
   border: none;
@@ -403,12 +435,15 @@ footer .btn-app a img {
   margin-left: 175px;
 }
 .mr-64 {
-  margin-right: 64px;
+  margin-right: -64px;
+}
+.ml-64 {
+  margin-left: -64px;
 }
 
 /*===== media query =====*/
 
-@media (max-width: 1130px) {
+@media (max-width: 1147px) {
   .header #btn-mobile {
     display: block;
   }
@@ -473,15 +508,30 @@ footer .btn-app a img {
     top: -7px;
     position: relative;
   }
+
+  .info-action {
+    margin-bottom: 50px;
+  }
+  .footer-content {
+    margin: 0;
+    padding: 0 20px;
+  }
 }
 
-@media (max-width: 700px) {
-  .header .btn-login {
-    display: none;
+@media (max-width: 1050px) {
+  .products-content {
+    padding: 20px !important;
   }
+  .products-content .products-description img {
+    margin: 0 !important;
+  }
+}
 
+@media (max-width: 950px) {
   .hero .hero-content {
     justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
     margin-top: 5%;
     padding: 10px;
   }
@@ -489,6 +539,8 @@ footer .btn-app a img {
     margin: 15px 0;
     flex-flow: column nowrap;
     align-content: center;
+    z-index: 10;
+    position: relative;
   }
   .hero .hero-content .action-register h1 {
     font-size: 3em;
@@ -498,105 +550,57 @@ footer .btn-app a img {
   .hero .hero-content .action-register span {
     max-width: 100%;
   }
+  .hero .hero-content .img-hero {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+    top: 5;
+    min-width: none;
+  }
   .hero .hero-content .img-hero img {
-    width: 80%;
+    opacity: 0.2;
   }
 
   .info-action {
-    padding: 10px;
-    height: max-content !important;
-    margin: 50px 0;
+    height: auto !important;
   }
-  .info-action .text-info {
-    display: flex;
-    flex-flow: column nowrap;
+  .text-info {
+    flex-flow: column;
+    align-items: center;
   }
-
-  .info-action .text-info .action-description {
-    margin: 15px 0;
-    width: auto;
-    line-height: 1.1em;
+  .text-info .action-description {
+    padding: 10px 20px;
+    width: 100%;
     text-align: center;
   }
-  .info-action .text-info .action-description h2 {
-    font-size: 1.5em;
-    line-height: 1.3em;
-    margin-bottom: 10px;
-  }
-  .info-action .text-info .action-description p {
-    font-size: 1.1em;
-  }
-  .info-action .text-info .logo-medio-cora {
+  .text-info .logo-medio-cora {
     width: 100%;
-    display: flex;
+    margin: 15px 0;
     justify-content: center;
   }
-  .info-action .text-info .logo-medio-cora img {
+  .text-info .logo-medio-cora img {
+    position: relative;
+    min-width: auto;
     width: 20%;
-    max-width: 80px;
   }
 
   .question-cora {
-    padding: 10px;
-    height: 300px !important;
+    height: max-content;
+    padding: 45px 15px;
   }
   .question-cora .question-content {
-    display: flex;
-    flex-flow: column nowrap;
-    margin: 0 !important;
-    align-items: center;
-  }
-  .question-cora .question-content h2 {
+    padding: 0 15px;
     margin: 0;
-    font-size: 2em;
-  }
-
-  .products-cora {
-    padding: 10px;
-  }
-  .products-cora .products-content {
-    margin: 0 !important;
-    display: flex;
-    flex-flow: column nowrap;
-  }
-  .products-cora .products-description {
-    margin: 20px 0 !important;
-  }
-  .products-cora .products-description div {
-    margin: 0;
-    width: 100% !important;
     text-align: center;
   }
-  .products-cora .products-description div h2 {
+  .question-cora .question-content h2 {
+    font-size: 2.5em;
     margin: 0;
-    width: 100%;
-    font-size: 1.8em !important;
-    line-height: 1.3em !important;
   }
-  .products-cora .products-description div p {
-    font-size: 1em !important;
-    line-height: 1.5em !important;
-  }
-  .products-cora .products-content .products-description img {
-    display: none;
-  }
-  .products-cora .products-content .products-description .mb-img {
-    margin-top: 15px;
-    background-image: url(/assets/img/product-cora-3.svg);
-    background-position: center top;
-    background-repeat: no-repeat;
-    background-size: cover;
-    width: 100%;
-    height: 200px;
-  }
-
-  .footer-content .footer-links {
-    justify-content: center !important;
-  }
-  .footer-content .footer-links div {
-    margin: 0 !important;
-    align-items: center;
-    margin-bottom: 25px !important;
+  .question-cora .question-content p {
+    font-size: 1.5em;
   }
 
   .footer-copy {
@@ -605,5 +609,86 @@ footer .btn-app a img {
   }
   .footer-copy .footer-midias {
     margin-top: 10px;
+  }
+}
+
+@media (max-width: 780px) {
+  .text-info .logo-medio-cora img {
+    width: 10%;
+  }
+}
+
+@media (max-width: 750px) {
+  .products-cora .products-content {
+    padding: 0;
+    margin: 0;
+  }
+  .products-cora .products-content .products-description {
+    flex-flow: column nowrap;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  .products-cora .products-content .products-description:last-child {
+    flex-flow: column-reverse nowrap;
+  }
+  .products-cora .products-content .products-description div h2 {
+    font-size: 2em;
+    line-height: 40px;
+    margin-bottom: 20px;
+  }
+  .products-cora .products-content .products-description div p {
+    font-size: 1.3em;
+    margin-bottom: 10px;
+  }
+
+  .products-cora .products-content .products-description img {
+    width: 100%;
+    position: relative;
+  }
+}
+
+@media (max-width: 560px) {
+  .header .btn-login {
+    display: none;
+  }
+
+  .hero .hero-content {
+    min-height: 500px;
+    margin-top: 50px;
+  }
+
+  .hero .hero-content .action-register h1 {
+    font-size: 2.5em;
+    line-height: 1.2em;
+    text-align: center;
+  }
+
+  .hero .hero-content .img-hero {
+    min-width: none;
+    align-items: center !important;
+    justify-content: center;
+  }
+  .hero .hero-content .img-hero img {
+    width: 80%;
+  }
+  .info-action .text-info .action-description h2 {
+    font-size: 2em;
+    line-height: 1.3em;
+    margin-bottom: 10px;
+    padding: 0;
+  }
+  .info-action .text-info .action-description p {
+    font-size: 1.1em;
+  }
+  .footer-content {
+    padding-top: 30px;
+  }
+  .footer-content .footer-links {
+    justify-content: center !important;
+  }
+  .footer-content .footer-links div {
+    margin: 0 !important;
+    align-items: center;
+    margin-bottom: 25px !important;
   }
 }
